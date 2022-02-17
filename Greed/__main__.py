@@ -58,7 +58,7 @@ def main():
         messages = data.splitlines()
 
     for n in range(DEFAULT_ARTIFACTS):
-        test = ['42','9633']
+        test = ['42','9744']
         text = chr(int(random.choice(test))) 
         # * artificat , □ = 0x25A1
 
