@@ -48,7 +48,14 @@ class Actor:
         """
         return self._position
     
-
+    def get_text(self):
+        """Gets the actor's textual representation.
+        
+        Returns:
+            string: The actor's textual representation.
+        """
+        return self._text
+        
     def get_velocity(self):
         """Gets the actor's speed and direction.
         
