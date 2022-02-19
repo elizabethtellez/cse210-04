@@ -22,6 +22,3 @@ class Artifact (Actor):
         """
         self._message = message
 
-       
-
-

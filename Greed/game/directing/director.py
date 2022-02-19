@@ -51,16 +51,21 @@ class Director:
         robot = cast.get_first_actor("robots")
         artifacts = cast.get_actors("artifacts")
 
-        banner.set_text("")
+        message = banner.get_score()
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
         
         for artifact in artifacts:
+            artifact.move_next(max_x, max_y)
+
             if robot.get_position().equals(artifact.get_position()):
-                message = artifact.get_message()
-                banner.set_text(message)    
-        
+                message = artifact.get_score()
+                robot.set_score(robot.get_score() + message)
+                
+
+        banner.set_text("score: " + str(robot.get_score()))  
+                
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
         
