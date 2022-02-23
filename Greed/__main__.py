@@ -33,8 +33,8 @@ def main():
     cast = Cast()
     
     # create the banner
-    banner = Actor()
-    banner.set_text("")
+    banner = Artifact()
+    banner.set_text("Score: 0")
     banner.set_font_size(FONT_SIZE)
     banner.set_color(WHITE)
     banner.set_position(Point(CELL_SIZE, 0))
@@ -50,6 +50,7 @@ def main():
     robot.set_font_size(FONT_SIZE)
     robot.set_color(WHITE)
     robot.set_position(position)
+    robot.set_score(0)
     cast.add_actor("robots", robot)
     
     # create the artifacts
@@ -62,13 +63,18 @@ def main():
         text = chr(int(random.choice(test))) 
         # * artificat , □ = 0x25A1
 
-        message = messages[n]
+        if text == chr(42):
+            message = 100
+
+        if text == chr(9744):
+            message = -100
 
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
+        velocity = Point(0, 1)
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
-
+        
         r = random.randint(0, 255)
         g = random.randint(0, 255)
         b = random.randint(0, 255)
@@ -79,7 +85,8 @@ def main():
         artifact.set_font_size(FONT_SIZE)
         artifact.set_color(color)
         artifact.set_position(position)
-        artifact.set_message(message)
+        artifact.set_score(message)
+        artifact.set_velocity(velocity)
         cast.add_actor("artifacts", artifact)
     
     # start the game
