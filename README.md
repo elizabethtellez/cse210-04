@@ -34,6 +34,7 @@ The project files and folders are organized as follows:
 
 Required Technologies
 Python 3.8.0
+
 Authors
 Elizabeth Tellez (tel21004@byui.edu)
 Landon Carter (carteronelah@gmail.com)
