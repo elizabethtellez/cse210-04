@@ -31,7 +31,6 @@ The project files and folders are organized as follows:
       +--point.py (point class)
   +-- __main__.py (program entry point)
 +-- README.md (general info)
-
 Required Technologies
 Python 3.8.0
 
