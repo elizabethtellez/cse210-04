@@ -6,9 +6,9 @@ class VideoService:
     on the screen. 
     """
 
-    def __init__(self, caption, width, height, cell_size, frame_rate, debug = False):
+    def __init__(self, caption, width, height, cell_size, frame_rate, debug=False):
         """Constructs a new VideoService using the specified debug mode.
-        
+
         Args:
             debug (bool): whether or not to draw in debug mode.
         """
@@ -31,38 +31,38 @@ class VideoService:
         pyray.clear_background(pyray.BLACK)
         if self._debug == True:
             self._draw_grid()
-    
+
     def draw_actor(self, actor):
         """Draws the given actor's text on the screen.
 
         Args:
             actor (Actor): The actor to draw.
-        """ 
+        """
         text = actor.get_text()
         x = actor.get_position().get_x()
         y = actor.get_position().get_y()
         font_size = actor.get_font_size()
         color = actor.get_color().to_tuple()
         pyray.draw_text(text, x, y, font_size, color)
-        
+
     def draw_actors(self, actors):
         """Draws the text for the given list of actors on the screen.
 
         Args:
             actors (list): A list of actors to draw.
-        """ 
+        """
         for actor in actors:
             self.draw_actor(actor)
-    
+
     def flush_buffer(self):
         """Copies the buffer contents to the screen. This method should be called at the end of
         the game's output phase.
-        """ 
+        """
         pyray.end_drawing()
 
     def get_cell_size(self):
         """Gets the video screen's cell size.
-        
+
         Returns:
             Grid: The video screen's cell size.
         """
@@ -70,7 +70,7 @@ class VideoService:
 
     def get_height(self):
         """Gets the video screen's height.
-        
+
         Returns:
             Grid: The video screen's height.
         """
@@ -78,7 +78,7 @@ class VideoService:
 
     def get_width(self):
         """Gets the video screen's width.
-        
+
         Returns:
             Grid: The video screen's width.
         """
